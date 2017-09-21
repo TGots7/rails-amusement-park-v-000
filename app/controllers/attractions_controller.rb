@@ -1,5 +1,4 @@
 class AttractionsController < ApplicationController
-
   before_action :find_attraction, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -7,7 +6,7 @@ class AttractionsController < ApplicationController
     end
 
     def create
-        @attraction = Attraction.new(attraction_params)
+      @attraction = Attraction.new(attraction_params)
         if @attraction.save
             redirect_to attraction_path(@attraction)
         else
@@ -24,7 +23,7 @@ class AttractionsController < ApplicationController
     end
 
 
-    private
+  private
 
     def attraction_params
         params.require(:attraction).permit(:name, :min_height, :happiness, :nausea_rating, :tickets)
